@@ -17,7 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (data.success) {
                     localStorage.setItem("usuarioLogueado", data.usuario.correo);
                     localStorage.setItem("usuarioLogueadoDatos", JSON.stringify(data.usuario));
+                    alert("¡Bienvenido " + data.usuario.nombre + "!");
                     window.location.href = "index.html";
+                } else {
+                    alert(data.mensaje);
                 }
             } catch (err) {
                 console.error("Error de red:", err);

@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const cargarPerfil = async () => {
-        pintarPerfil(usuario); // muestra lo que ya tenemos mientras llega el resto
+        pintarPerfil(usuario);
         try {
             const res = await fetch(`php/cuenta.php?accion=perfil&usuario_id=${usuario.id}`);
             const data = await res.json();
