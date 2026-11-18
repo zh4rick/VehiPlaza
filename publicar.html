@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Venta de Carros - Publicar Vehículo</title>
+</head>
+
+<body>
+    <!-- Encabezado / Navegación principal -->
+    <header class="container-fluid bg-light py-3 border-bottom mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="img/logo.png" alt="logo" id="logo">
+                    <h1 class="h4 mb-0">Venta carros</h1>
+                </div>
+                <nav class="main-menu">
+    <ul class="nav">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+        <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+        <li class="nav-item" id="nav-publicar"><a href="publicar.html" class="nav-link active">Publicar</a></li>
+        <li class="nav-item" id="nav-login" style="display: none;"><a href="inisesi.html" class="nav-link">Iniciar sesión</a></li>
+        <li class="nav-item" id="nav-registro" style="display: none;"><a href="registro.html" class="nav-link">Registrarse</a></li>
+        <li class="nav-item" id="nav-logout"><a href="#" class="nav-link text-danger" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+    </ul>
+</nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="card shadow-sm p-4">
+                    <h2 class="h4 text-center mb-4 font-weight-bold text-primary">Vende tu Vehículo</h2>
+                    <p class="text-center text-muted mb-4">Diligencia la información básica para conectar con compradores interesados.</p>
+
+                    <form id="form-publicar" enctype="multipart/form-data">
+                        <h5 class="border-bottom pb-2 mb-3 text-secondary">Información Básica (Filtros de Búsqueda)</h5>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="marca" class="font-weight-bold">Marca <span class="text-danger">*</span></label>
+                                <select class="form-control" id="marca" name="marca" required>
+                                    <option value="" selected disabled>Selecciona la marca</option>
+                                    <option value="renault">Renault</option>
+                                    <option value="chevrolet">Chevrolet</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="nissan">Nissan</option>
+                                    <option value="mazda">Mazda</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="modelo" class="font-weight-bold">Modelo <span class="text-danger">*</span></label>
+                                <select class="form-control" id="modelo" name="modelo" required>
+                                    <option value="" selected disabled>Selecciona primero una marca</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="anio" class="font-weight-bold">Año <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="anio" name="anio" placeholder="Ej. 2022" min="1990" max="2027" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="precio" class="font-weight-bold">Precio ($ COP) <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="precio" name="precio" placeholder="Ej. 45000000" min="1" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="km" class="font-weight-bold">Kilometraje (km) <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="km" name="km" placeholder="Ej. 35000" min="0" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="transmision" class="font-weight-bold">Transmisión <span class="text-danger">*</span></label>
+                                <select class="form-control" id="transmision" name="transmision" required>
+                                    <option value="" selected disabled>Selecciona la transmisión</option>
+                                    <option value="Mecánica">Mecánica</option>
+                                    <option value="Automática">Automática</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="combustible" class="font-weight-bold">Combustible <span class="text-danger">*</span></label>
+                                <select class="form-control" id="combustible" name="combustible" required>
+                                    <option value="" selected disabled>Tipo de combustible</option>
+                                    <option value="Gasolina">Gasolina</option>
+                                    <option value="Diésel">Diésel</option>
+                                    <option value="Híbrido">Híbrido</option>
+                                    <option value="Eléctrico">Eléctrico</option>
+                                    <option value="Gas / Gasolina">Gas / Gasolina</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ciudad" class="font-weight-bold">Ciudad de ubicación <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ej. Bogotá, Medellín, Cali..." required>
+                        </div>
+
+                        <h5 class="border-bottom pb-2 mb-3 mt-4 text-secondary">Ficha Técnica y Equipamiento (NoSQL)</h5>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold d-block">Equipamiento adicional:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="extra-aire" value="Aire Acondicionado">
+                                <label class="form-check-label" for="extra-aire">Aire Acondicionado</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="extra-abs" value="Frenos ABS">
+                                <label class="form-check-label" for="extra-abs">Frenos ABS</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="extra-airbags" value="Airbags">
+                                <label class="form-check-label" for="extra-airbags">Airbags</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="extra-sunroof" value="Techo Panorámico / Sunroof">
+                                <label class="form-check-label" for="extra-sunroof">Sunroof</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="extra-camara" value="Cámara de Reversa">
+                                <label class="form-check-label" for="extra-camara">Cámara de Reversa</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion" class="font-weight-bold">Descripción detallada</label>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" placeholder="Escribe detalles sobre el estado del vehículo, mantenimientos, SOAT, tecno, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen" class="font-weight-bold">Imagen del Vehículo</label>
+                            <input type="file" class="form-control-file" id="imagen" accept="image/*">
+                        </div>
+
+                        <div class="form-group mt-4 d-flex justify-content-between">
+                            <a href="index.html" class="btn btn-outline-secondary px-4">Cancelar</a>
+                            <button type="submit" class="btn btn-primary px-5 font-weight-bold" id="btn-publicar">Publicar Vehículo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/nav.js"></script>
+    <script src="js/publicar.js"></script>
+</body>
+
+</html>

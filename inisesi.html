@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Venta de Carros - Iniciar Sesión</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-light py-3 border-bottom mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="img/logo.png" alt="logo" id="logo">
+                    <h1 class="h4 mb-0">Venta carros</h1>
+                </div>
+                <nav class="main-menu">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                        <li class="nav-item"><a href="inisesi.html" class="nav-link active">Iniciar sesion</a></li>
+                        <li class="nav-item"><a href="registro.html" class="nav-link">Registrarse</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <div class="card shadow-sm p-4">
+                    <h2 class="text-center mb-4 h4">Iniciar Sesión</h2>
+                    <form id="form-login">
+                        <div class="form-group">
+                            <label for="correo" class="form-label">Correo Electronico</label>
+                            <input type="email" class="form-control" id="correo" placeholder="correo@ejemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="*****">
+                        </div>
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary btn-block mb-2">Iniciar sesión</button>
+                            <a href="index.html" class="btn btn-outline-secondary btn-block">Volver al inicio</a>
+                        </div>
+                        <div class="col-12 text-center mt-3">
+                            <a href="registro.html">¿No tienes cuenta? Registrate con nosotros.</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/nav.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Venta de Carros - Detalle del Vehículo</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-light py-3 border-bottom mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="img/logo.png" alt="logo" id="logo">
+                    <h1 class="h4 mb-0">Venta carros</h1>
+                </div>
+                <nav class="main-menu">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
+                        <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                        <!-- Oculto por defecto; JavaScript lo muestra si hay sesión -->
+                        <li class="nav-item" id="nav-publicar" style="display: none;"><a href="publicar.html" class="nav-link">Publicar</a></li>
+                        <li class="nav-item" id="nav-cuenta" style="display: none;"><a href="cuenta.html" class="nav-link">Cuenta</a></li>
+                        <li class="nav-item" id="nav-login"><a href="inisesi.html" class="nav-link">Iniciar sesion</a></li>
+                        <li class="nav-item" id="nav-registro"><a href="registro.html" class="nav-link">Registrarse</a></li>
+                        <li class="nav-item" id="nav-logout" style="display: none;"><a href="#" class="nav-link text-danger" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-3">
+        <button type="button" id="btn-volver" class="btn btn-outline-secondary btn-sm mb-3">&larr; Volver</button>
+
+        <div class="row">
+            <div class="col-12 col-md-7 mb-4">
+                <div class="text-center mb-3">
+                    <img id="imagen_url" src="img/carro.png" class="img-fluid rounded shadow-sm"
+                         style="max-height: 400px; width: 100%; object-fit: cover;" alt="Imagen del carro"
+                         onerror="this.onerror=null; this.src='img/carro.png';">
+                </div>
+
+                <div class="card shadow-sm p-4 mt-4">
+                    <h3 class="h5 mb-3">Descripción detallada</h3>
+                    <p id="carro-descripcion" class="mb-0" style="white-space: pre-line;">Cargando descripción...</p>
+
+                    <div id="bloque-equipamiento" style="display: none;">
+                        <hr>
+                        <h4 class="h6 mb-2">Equipamiento</h4>
+                        <p id="carro-equipamiento" class="mb-0"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5">
+                <div class="card shadow-sm p-4">
+                    <h2 id="nombre-carro" class="h3 font-weight-bold">Renault Logan 2023</h2>
+                    <p id="carro-precio" class="text-success h4 font-weight-bold mb-3">$ 45.000.000</p>
+                    
+                    <ul class="list-unstyled mb-4">
+                        <li><strong>Kilómetros:</strong> <span id="carro-km">15.000 km</span></li>
+                        <li><strong>Transmisión:</strong> <span id="carro-transmision">Automático</span></li>
+                        <li><strong>Combustible:</strong> <span id="carro-combustible">Gasolina</span></li>
+                        <li><strong>Modelo / Año:</strong> <span id="carro-anio">2023</span></li>
+                        <li><strong>Ciudad:</strong> <span id="carro-ciudad">Bogotá</span></li>
+                    </ul>
+
+                    <hr>
+
+                    <h5 class="mb-3">¿Te interesa este vehículo?</h5>
+                    <p class="text-muted small">Comunícate directamente con el vendedor para concretar la compra.</p>
+                    
+                    <a id="btn-whatsapp"
+                       href="https://wa.me/573001234567?text=Hola,%20estoy%20interesado%20en%20el%20carro%20que%20publicaste."
+                       class="btn btn-success btn-block" target="_blank" rel="noopener">
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/nav.js"></script>
+    <script src="js/detalle.js"></script>
+</body>
+
+</html>

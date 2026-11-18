@@ -1,0 +1,50 @@
+#logo {
+    width: 100px;
+    height: 100px;
+}
+
+header {
+    background: linear-gradient(90deg, #4E2FB0, #E7DFF7);
+    color: white;
+    padding: 15px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-text h2,
+.brand-text p {
+    margin: 0;
+}
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.card-img-fija {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+}

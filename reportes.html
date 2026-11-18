@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Venta de Carros - Reportes</title>
+</head>
+<body>
+    <header class="container-fluid bg-light py-3 border-bottom mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="img/logo.png" alt="logo" id="logo">
+                    <h1 class="h4 mb-0">Venta carros</h1>
+                </div>
+                <nav class="main-menu">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                        <li class="nav-item"><a href="reportes.html" class="nav-link active">Reportes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <h2 class="h4 mb-4">Reportes</h2>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h3 class="h5">Ranking de marcas</h3>
+                <p class="text-muted small mb-3">Vista <code>v_ranking_marcas</code> (JOIN de 3 tablas, GROUP BY y HAVING).</p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped mb-0">
+                        <thead><tr><th>Marca</th><th>Publicaciones</th><th>Precio promedio</th><th>Mínimo</th><th>Máximo</th></tr></thead>
+                        <tbody id="rep-marcas"><tr><td colspan="5">Cargando...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h3 class="h5">Vendedores con más publicaciones</h3>
+                <p class="text-muted small mb-3">Vista <code>v_top_vendedores</code> (JOIN de 3 tablas, GROUP BY y HAVING).</p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped mb-0">
+                        <thead><tr><th>Vendedor</th><th>Publicaciones</th><th>Favoritos recibidos</th></tr></thead>
+                        <tbody id="rep-vendedores"><tr><td colspan="3">Cargando...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h3 class="h5">Publicaciones más populares</h3>
+                <p class="text-muted small mb-3">Vista <code>v_publicaciones_populares</code> (subconsulta: favoritos por encima del promedio).</p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped mb-0">
+                        <thead><tr><th>Vehículo</th><th>Año</th><th>Precio</th><th>Ciudad</th><th>Favoritos</th><th></th></tr></thead>
+                        <tbody id="rep-populares"><tr><td colspan="6">Cargando...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/nav.js"></script>
+    <script src="js/reportes.js"></script>
+</body>
+</html> 

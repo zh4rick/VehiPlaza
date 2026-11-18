@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - Venta de Carros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .img-fija { width: 100%; height: 160px; object-fit: cover; }
+    </style>
+</head>
+<body class="bg-light">
+    <header class="container-fluid bg-light py-3 border-bottom mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                     <img src="img/logo.png" alt="logo" id="logo">
+                    <h1 class="h4 mb-0">Venta carros</h1>
+                </div>
+                <nav class="main-menu">
+    <ul class="nav">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+        <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+        <li class="nav-item" id="nav-publicar"><a href="publicar.html" class="nav-link active">Publicar</a></li>
+        <li class="nav-item" id="nav-login" style="display: none;"><a href="inisesi.html" class="nav-link">Iniciar sesión</a></li>
+        <li class="nav-item" id="nav-registro" style="display: none;"><a href="registro.html" class="nav-link">Registrarse</a></li>
+        <li class="nav-item" id="nav-logout"><a href="#" class="nav-link text-danger" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+    </ul>
+</nav>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container my-5">
+        <div class="row">
+
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3 text-center" id="tituloCuenta">Mi Cuenta</h4>
+
+                        <form id="formCuenta" novalidate>
+                            <div class="mb-3">
+                                <label for="cuentaNombre" class="form-label fw-bold">Nombre</label>
+                                <input type="text" class="form-control" id="cuentaNombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cuentaTelefono" class="form-label fw-bold">Teléfono</label>
+                                <input type="tel" class="form-control" id="cuentaTelefono" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cuentaCorreo" class="form-label fw-bold">Correo</label>
+                                <input type="email" class="form-control" id="cuentaCorreo" required>
+                            </div>
+
+                            <hr>
+                            <p class="small text-muted mb-2">Solo si quieres cambiar la contraseña:</p>
+                            <div class="mb-3">
+                                <label for="cuentaPasswordNueva" class="form-label fw-bold">Nueva contraseña</label>
+                                <input type="password" class="form-control" id="cuentaPasswordNueva" autocomplete="new-password" placeholder="Mínimo 6 caracteres">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cuentaPasswordActual" class="form-label fw-bold">Contraseña actual</label>
+                                <input type="password" class="form-control" id="cuentaPasswordActual" autocomplete="current-password" placeholder="Obligatoria para cambiar correo o contraseña">
+                            </div>
+
+                            <div id="mensajeCuenta" class="small mb-2"></div>
+                            <button type="submit" class="btn btn-primary w-100 mb-2">Guardar cambios</button>
+                        </form>
+
+                        <button id="btnCerrarSesion" class="btn btn-danger btn-sm w-100">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="btn-group mb-4" role="group">
+                            <button type="button" class="btn btn-primary" id="tabPublicaciones">Mis publicaciones</button>
+                            <button type="button" class="btn btn-outline-primary" id="tabFavoritos">Mis favoritos</button>
+                        </div>
+
+                        <div id="panelPublicaciones">
+                            <div id="contenedorPublicaciones" class="row">
+                                <p class="text-muted">Cargando publicaciones...</p>
+                            </div>
+                        </div>
+
+                        <div id="panelFavoritos" style="display:none;">
+                            <div id="contenedorFavoritos" class="row">
+                                <p class="text-muted">Cargando favoritos...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/cuenta.js"></script>
+</body>
+</html>

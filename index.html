@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Venta de Carros - Inicio</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-light py-3 border-bottom mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="img/logo.png" alt="logo" id="logo">
+                    <h1 class="h4 mb-0">Venta carros</h1>
+                </div>
+                <nav class="main-menu">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
+                        <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                        <li class="nav-item" id="nav-publicar" style="display: none;"><a href="publicar.html" class="nav-link">Publicar</a></li>
+                        <li class="nav-item" id="nav-cuenta" style="display: none;"><a href="cuenta.html" class="nav-link">Cuenta</a></li>
+                        <li class="nav-item" id="nav-login"><a href="inisesi.html" class="nav-link">Iniciar sesion</a></li>
+                        <li class="nav-item" id="nav-registro"><a href="registro.html" class="nav-link">Registrarse</a></li>
+                        <li class="nav-item" id="nav-logout" style="display: none;"><a href="#" class="nav-link text-danger" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <aside class="col-12 col-md-3 mb-4">
+    <div class="card p-3 shadow-sm">
+        <div class="busqueda mb-3">
+            <h2 class="h4 mb-3">Buscar</h2>
+        </div>
+        <form action="">
+            <div class="form-group mb-3">
+                <label for="filtro-marca" class="form-label fw-bold">Marca:</label>
+                <select class="form-control" id="filtro-marca">
+                    <option value="" selected>Todas las marcas</option>
+                    <option value="renault">Renault</option>
+                    <option value="chevrolet">Chevrolet</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="nissan">Nissan</option>
+                    <option value="mazda">Mazda</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="filtro-modelo" class="form-label fw-bold">Modelo:</label>
+                <select class="form-control" id="filtro-modelo">
+                    <option value="" selected>Selecciona primero una marca</option>
+                </select>
+            </div>
+
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+                <button type="reset" class="btn btn-outline-secondary w-100" id="btn-borrar">Borrar filtros</button>
+            </div>
+        </form>
+    </div>
+</aside>
+            <main class="col-12 col-md-9">
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="" class="card-img-top" alt="carro">
+                            <div class="card-body d-grid flex-column">
+                                <p class="nombrecarro font-weight-bold">pepe</p>
+                                <span class="km">1km</span>
+                                <span class="transmision">automatico</span>
+                                <span class="combustible">gaso</span>
+                                <p class="precio text-success font-weight-bold mt-2">450millones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/nav.js"></script>
+    <script src="js/inicio.js"></script>
+</body>
+
+</html>

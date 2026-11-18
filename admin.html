@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Venta de Carros - Panel de administración</title>
+</head>
+<body>
+    <header class="container-fluid bg-light py-3 border-bottom mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <img src="img/logo.png" alt="logo" id="logo">
+                <h1 class="h4 mb-0">Venta carros · Administración</h1>
+                <nav class="main-menu">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="admin.html" class="nav-link active">Admin</a></li>
+                        <li class="nav-item"><a href="reportes.html" class="nav-link">Reportes</a></li>
+                        <li class="nav-item"><a href="cuenta.html" class="nav-link">Cuenta</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-danger" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4" id="contenido" style="display:none;">
+        <div class="btn-group mb-4" role="group">
+            <button type="button" class="btn btn-primary" id="tab-usuarios">Usuarios</button>
+            <button type="button" class="btn btn-outline-primary" id="tab-publicaciones">Publicaciones</button>
+            <button type="button" class="btn btn-outline-primary" id="tab-auditoria">Auditoría</button>
+        </div>
+
+        <div id="mensaje" class="alert" style="display:none;"></div>
+
+        <section id="panel-usuarios">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h5 mb-3" id="titulo-form">Crear usuario</h2>
+                    <form id="form-usuario" novalidate>
+                        <input type="hidden" id="u-id">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="u-nombre">Nombre</label>
+                                <input type="text" class="form-control" id="u-nombre" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="u-telefono">Teléfono</label>
+                                <input type="tel" class="form-control" id="u-telefono" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="u-correo">Correo</label>
+                                <input type="email" class="form-control" id="u-correo" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="u-rol">Rol</label>
+                                <select class="form-control" id="u-rol"></select>
+                            </div>
+                            <div class="form-group col-md-4" id="grupo-activo" style="display:none;">
+                                <label for="u-activo">Estado</label>
+                                <select class="form-control" id="u-activo">
+                                    <option value="1">Activo</option>
+                                    <option value="0">Inactivo</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4" id="grupo-password">
+                                <label for="u-password">Contraseña (mínimo 6)</label>
+                                <input type="password" class="form-control" id="u-password" autocomplete="new-password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="btn-guardar-usuario">Crear usuario</button>
+                        <button type="button" class="btn btn-outline-secondary" id="btn-cancelar" style="display:none;">Cancelar edición</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 mb-3">Usuarios registrados</h2>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped mb-0">
+                            <thead><tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Rol</th><th>Estado</th><th>Publ.</th><th>Fav.</th><th></th></tr></thead>
+                            <tbody id="tbody-usuarios"><tr><td colspan="9">Cargando...</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="panel-publicaciones" style="display:none;">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 mb-3">Publicaciones</h2>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped mb-0">
+                            <thead><tr><th>ID</th><th>Vehículo</th><th>Año</th><th>Precio</th><th>Ciudad</th><th>Vendedor</th><th>Fav.</th><th>Estado</th><th></th></tr></thead>
+                            <tbody id="tbody-publicaciones"><tr><td colspan="9">Cargando...</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="panel-auditoria" style="display:none;">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 mb-1">Auditoría</h2>
+                    <p class="text-muted small mb-3">Últimos 100 movimientos registrados por los triggers (vista <code>v_auditoria_reciente</code>).</p>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped mb-0">
+                            <thead><tr><th>#</th><th>Fecha</th><th>Tabla</th><th>Acción</th><th>Registro</th><th>Detalle</th><th>Usuario BD</th></tr></thead>
+                            <tbody id="tbody-auditoria"><tr><td colspan="7">Cargando...</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/nav.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
