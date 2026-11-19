@@ -115,7 +115,7 @@ CREATE TABLE `favoritos` (
   KEY `idx_fav_publicacion` (`publicacion_id`),
   CONSTRAINT `fk_fav_publicacion` FOREIGN KEY (`publicacion_id`) REFERENCES `publicaciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_fav_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `favoritos` (
 
 LOCK TABLES `favoritos` WRITE;
 /*!40000 ALTER TABLE `favoritos` DISABLE KEYS */;
-INSERT INTO `favoritos` VALUES (1,3,2,'2026-11-17 17:09:28'),(2,3,1,'2026-11-17 17:44:53'),(4,3,3,'2026-11-17 17:57:28');
+INSERT INTO `favoritos` VALUES (1,3,2,'2026-11-17 17:09:28'),(2,3,1,'2026-11-17 17:44:53'),(4,3,3,'2026-11-17 17:57:28'),(6,5,2,'2026-11-19 02:38:48'),(7,5,5,'2026-11-19 02:39:26'),(8,2,3,'2026-11-19 02:40:31'),(9,2,1,'2026-11-19 02:40:33'),(10,2,4,'2026-11-19 02:40:38');
 /*!40000 ALTER TABLE `favoritos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `historial_precios` (
   PRIMARY KEY (`id`),
   KEY `idx_hp_publicacion` (`publicacion_id`,`fecha`),
   CONSTRAINT `fk_hp_publicacion` FOREIGN KEY (`publicacion_id`) REFERENCES `publicaciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `log_auditoria` (
   PRIMARY KEY (`id`),
   KEY `idx_log_tabla_fecha` (`tabla`,`fecha`),
   CONSTRAINT `ck_log_accion` CHECK (`accion` in ('INSERT','UPDATE','DELETE'))
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `log_auditoria` (
 
 LOCK TABLES `log_auditoria` WRITE;
 /*!40000 ALTER TABLE `log_auditoria` DISABLE KEYS */;
-INSERT INTO `log_auditoria` VALUES (1,'publicaciones','INSERT',1,'Publicación creada. Usuario 2, precio 2300000.00','root@localhost','2026-11-17 16:36:42'),(2,'publicaciones','INSERT',2,'Publicación creada. Usuario 3, precio 3200000.00','root@localhost','2026-11-17 16:37:30'),(3,'usuarios','UPDATE',3,'Cambió la contraseña','root@localhost','2026-11-17 16:45:07'),(4,'usuarios','UPDATE',3,'Cambió la contraseña','root@localhost','2026-11-17 16:46:15'),(5,'publicaciones','INSERT',3,'Publicación creada. Usuario 3, precio 24000000.00','root@localhost','2026-11-17 17:09:21'),(6,'usuarios','UPDATE',3,'Actualización de datos','root@localhost','2026-11-17 17:37:29'),(7,'usuarios','UPDATE',3,'Actualización de datos','root@localhost','2026-11-17 17:51:12'),(8,'usuarios','UPDATE',3,'Actualización de datos','root@localhost','2026-11-17 17:53:04'),(9,'publicaciones','INSERT',4,'Publicación creada. Usuario 4, precio 48990000.00','root@localhost','2026-11-18 15:01:01'),(10,'publicaciones','INSERT',5,'Publicación creada. Usuario 4, precio 30000000.00','root@localhost','2026-11-18 15:04:51'),(11,'publicaciones','INSERT',6,'Publicación creada. Usuario 4, precio 75000000.00','root@localhost','2026-11-18 15:07:06');
+INSERT INTO `log_auditoria` VALUES (1,'publicaciones','INSERT',1,'Publicación creada. Usuario 2, precio 2300000.00','root@localhost','2026-11-17 16:36:42'),(2,'publicaciones','INSERT',2,'Publicación creada. Usuario 3, precio 3200000.00','root@localhost','2026-11-17 16:37:30'),(3,'usuarios','UPDATE',3,'Cambió la contraseña','root@localhost','2026-11-17 16:45:07'),(4,'usuarios','UPDATE',3,'Cambió la contraseña','root@localhost','2026-11-17 16:46:15'),(5,'publicaciones','INSERT',3,'Publicación creada. Usuario 3, precio 24000000.00','root@localhost','2026-11-17 17:09:21'),(6,'usuarios','UPDATE',3,'Actualización de datos','root@localhost','2026-11-17 17:37:29'),(7,'usuarios','UPDATE',3,'Actualización de datos','root@localhost','2026-11-17 17:51:12'),(8,'usuarios','UPDATE',3,'Actualización de datos','root@localhost','2026-11-17 17:53:04'),(9,'publicaciones','INSERT',4,'Publicación creada. Usuario 4, precio 48990000.00','root@localhost','2026-11-18 15:01:01'),(10,'publicaciones','INSERT',5,'Publicación creada. Usuario 4, precio 30000000.00','root@localhost','2026-11-18 15:04:51'),(11,'publicaciones','INSERT',6,'Publicación creada. Usuario 4, precio 75000000.00','root@localhost','2026-11-18 15:07:06'),(12,'publicaciones','INSERT',7,'Publicación creada. Usuario 2, precio 45000000.00','root@localhost','2026-11-19 02:58:18'),(13,'publicaciones','INSERT',8,'Publicación creada. Usuario 2, precio 45000000.00','root@localhost','2026-11-19 02:59:03'),(14,'publicaciones','UPDATE',8,'Precio: 45000000.00 -> 43000000.00 | Estado: activa -> activa','root@localhost','2026-11-19 03:01:18'),(15,'publicaciones','DELETE',8,'Publicación eliminada. Precio 43000000.00','root@localhost','2026-11-19 11:09:00'),(16,'publicaciones','DELETE',7,'Publicación eliminada. Precio 45000000.00','root@localhost','2026-11-19 11:09:02'),(17,'publicaciones','DELETE',6,'Publicación eliminada. Precio 75000000.00','root@localhost','2026-11-19 11:09:05'),(18,'publicaciones','INSERT',9,'Publicación creada. Usuario 5, precio 104900000.00','root@localhost','2026-11-19 12:20:23');
 /*!40000 ALTER TABLE `log_auditoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +199,7 @@ CREATE TABLE `marcas` (
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_marcas_nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,7 +226,7 @@ CREATE TABLE `modelos` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_modelos_marca_nombre` (`marca_id`,`nombre`),
   CONSTRAINT `fk_modelos_marca` FOREIGN KEY (`marca_id`) REFERENCES `marcas` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +262,7 @@ CREATE TABLE `publicacion_equipamiento` (
 
 LOCK TABLES `publicacion_equipamiento` WRITE;
 /*!40000 ALTER TABLE `publicacion_equipamiento` DISABLE KEYS */;
-INSERT INTO `publicacion_equipamiento` VALUES (1,3),(1,4),(2,1),(2,5),(3,4),(4,1),(4,2),(4,3),(4,5),(5,2),(5,3),(6,5);
+INSERT INTO `publicacion_equipamiento` VALUES (1,3),(1,4),(2,1),(2,5),(3,4),(4,1),(4,2),(4,3),(4,5),(5,2),(5,3),(9,1),(9,2),(9,3);
 /*!40000 ALTER TABLE `publicacion_equipamiento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,7 +303,7 @@ CREATE TABLE `publicaciones` (
   CONSTRAINT `ck_pub_precio` CHECK (`precio` > 0),
   CONSTRAINT `ck_pub_km` CHECK (`kilometraje` >= 0),
   CONSTRAINT `ck_pub_estado` CHECK (`estado` in ('activa','vendida','inactiva'))
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,7 +312,7 @@ CREATE TABLE `publicaciones` (
 
 LOCK TABLES `publicaciones` WRITE;
 /*!40000 ALTER TABLE `publicaciones` DISABLE KEYS */;
-INSERT INTO `publicaciones` VALUES (1,2,8,5,1,2,2022,2300000.00,334200,'En perfecto estado','img/10761e9265980962ede454adf37dfd1f.png','activa','2026-11-17 16:36:42'),(2,3,12,3,2,2,2021,3200000.00,330000,'No cuenta con papeles al día','img/7c3d3d161629cc239bcc431db9d1ed06.png','activa','2026-11-17 16:37:30'),(3,3,16,1,1,3,2026,24000000.00,0,'Nuevo','img/1c8bc25debdc0d451ebd0d2c3c2777e3.png','activa','2026-11-17 17:09:21'),(4,4,6,1,1,1,2021,48990000.00,35000,'Luego de convertirse en el auto más vendido de la región, llega la nueva generación de este modelo, en su versión sedán, totalmente renovado en su estética y parte mecánica, innovando con la inclusión de un motor de tres cilindros turbo de un litro.','img/c786dd602ec011713481d5adb8b3261e.png','activa','2026-11-18 15:01:01'),(5,4,18,3,1,1,2019,30000000.00,20000,'Esta nueva generación ofrece como argumentos: seguridad, espacio interior, una buena relación valor/precio y está lleno de tecnologías orientadas a favorecer la seguridad de los pasajeros.','img/4239c4f4e263e65bdd00b7bf97466c97.png','activa','2026-11-18 15:04:51'),(6,4,12,5,1,1,2021,75000000.00,223120,'Vehículo en excelente estado de conservación, con pintura original y bien cuidada.','img/3066979fe536c172d65077cb4e742f0b.png','activa','2026-11-18 15:07:06');
+INSERT INTO `publicaciones` VALUES (1,2,8,5,1,2,2022,2300000.00,334200,'En perfecto estado','img/10761e9265980962ede454adf37dfd1f.png','activa','2026-11-17 16:36:42'),(2,3,12,3,2,2,2021,3200000.00,330000,'No cuenta con papeles al día','img/7c3d3d161629cc239bcc431db9d1ed06.png','activa','2026-11-17 16:37:30'),(3,3,16,1,1,3,2026,24000000.00,0,'Nuevo','img/1c8bc25debdc0d451ebd0d2c3c2777e3.png','activa','2026-11-17 17:09:21'),(4,4,6,1,1,1,2021,48990000.00,35000,'Luego de convertirse en el auto más vendido de la región, llega la nueva generación de este modelo, en su versión sedán, totalmente renovado en su estética y parte mecánica, innovando con la inclusión de un motor de tres cilindros turbo de un litro.','img/c786dd602ec011713481d5adb8b3261e.png','activa','2026-11-18 15:01:01'),(5,4,18,3,1,1,2019,30000000.00,20000,'Esta nueva generación ofrece como argumentos: seguridad, espacio interior, una buena relación valor/precio y está lleno de tecnologías orientadas a favorecer la seguridad de los pasajeros.','img/4239c4f4e263e65bdd00b7bf97466c97.png','activa','2026-11-18 15:04:51'),(9,5,23,2,2,3,2023,104900000.00,63508,'Cilindraje= 1998','img/e2556bf84c9a57c39557ff92c823a105.png','activa','2026-11-19 12:20:23');
 /*!40000 ALTER TABLE `publicaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -502,7 +502,7 @@ CREATE TABLE `usuarios` (
   CONSTRAINT `fk_usuarios_rol` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `ck_usuarios_telefono` CHECK (char_length(`telefono`) between 7 and 20),
   CONSTRAINT `ck_usuarios_activo` CHECK (`activo` in (0,1))
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -511,7 +511,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Administrador','3000000001','admin@ventacarros.com','$2y$12$Kk64dA6xs285nbMRE/13SONuHlQf0tHlZxJq/Y3304ujZFwenjCMe',1,1,'2026-11-17 16:34:34'),(2,'Usuario de Prueba','3000000002','usuario@ventacarros.com','$2y$12$72MJ7pblRyfWMcx.hBh.4.RTa6dImQJmoW7n90fpgHD8khBJhkhZ.',2,1,'2026-11-17 16:34:34'),(3,'Laura','3106783181','trabajosu022024@gmail.com','$2y$10$2IZUPHi8jKrNWMbpM1yvqedre4pF2asENRdfN9neAnIRpk22.WpsC',2,1,'2026-11-17 16:36:52'),(4,'Karola','3006783342','karola123@gmail.com','$2y$10$dLZFHJGYB3OJIg.C4fZUj.vtcgiFIHwDZ8eKSNhf29Y2dux.lYyC6',2,1,'2026-11-18 14:52:33');
+INSERT INTO `usuarios` VALUES (1,'Administrador','3000000001','admin@ventacarros.com','$2y$12$Kk64dA6xs285nbMRE/13SONuHlQf0tHlZxJq/Y3304ujZFwenjCMe',1,1,'2026-11-17 16:34:34'),(2,'Usuario de Prueba','3000000002','usuario@ventacarros.com','$2y$12$72MJ7pblRyfWMcx.hBh.4.RTa6dImQJmoW7n90fpgHD8khBJhkhZ.',2,1,'2026-11-17 16:34:34'),(3,'Laura','3106783181','trabajosu022024@gmail.com','$2y$10$2IZUPHi8jKrNWMbpM1yvqedre4pF2asENRdfN9neAnIRpk22.WpsC',2,1,'2026-11-17 16:36:52'),(4,'Karola','3006783342','karola123@gmail.com','$2y$10$dLZFHJGYB3OJIg.C4fZUj.vtcgiFIHwDZ8eKSNhf29Y2dux.lYyC6',2,1,'2026-11-18 14:52:33'),(5,'Josefina','3006783392','josefina@gmail.com','$2y$10$/oE7DHPRAjV.yL1HVA3B3.JY7kavQQaDyRanp7qAgEalX0yVCxb4m',2,1,'2026-11-19 02:37:38'),(6,'Prueba','3001112233','prueba@correo.com','x',2,1,'2026-11-19 02:54:28');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1563,4 +1563,4 @@ USE `venta_carros`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-11-18 15:35:00
+-- Dump completed on 2026-11-19 12:21:59
