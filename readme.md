@@ -29,7 +29,7 @@ base de datos (`fn_es_admin`).
 
 ## Instalación
 
-1. **Copia el proyecto** a `C:\xampp\htdocs\ProyectoBase\` y enciende Apache y MySQL desde XAMPP.
+1. **Copia el proyecto** a `C:\xampp\htdocs\VehiPlaza-main\` y enciende Apache y MySQL desde XAMPP.
 2. **Crea la base de datos:** en phpMyAdmin (`http://localhost/phpmyadmin`) ve a **Importar** y selecciona `bd/venta_carros.sql`.
    Crea las 13 tablas, los catálogos, las rutinas, los triggers, las vistas y los usuarios de prueba.
 3. **Crea el usuario de la aplicación:** en la pestaña **SQL** ejecuta `bd/usuario_app.sql`.
@@ -44,7 +44,7 @@ base de datos (`fn_es_admin`).
    DB_USER=venta_app
    DB_PASS="usa la clave que asignaste en el paso 3"
    ```
-5. **Abre** `http://localhost/ProyectoBase/` e inicia sesión con un usuario de prueba.
+5. **Abre** `http://localhost/VehiPlaza-main/` e inicia sesión con un usuario de prueba.
 
 Si la aplicación dice *"Falta el archivo .env"* o *"no debe usar el usuario root"*, revisa el paso 4.
 Si dice *"Access denied for user 'venta_app'"*, la contraseña del `.env` no coincide con la de la base de datos.
