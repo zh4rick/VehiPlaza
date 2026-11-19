@@ -1,4 +1,4 @@
-# Venta de Carros
+# VehiPlaza
 
 Aplicación web de compra y venta de vehículos con **PHP + MySQL**.
 La lógica de datos en la base de datos: procedimientos almacenados, funciones,
