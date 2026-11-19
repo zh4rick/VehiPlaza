@@ -1,9 +1,29 @@
 <?php
-$host = "localhost";
-$port = "3307";
-$usuario = "venta_app";
-$password = "admin123";
-$base_datos = "venta_carros";
+$rutaEnv = __DIR__ . '/../.env';
+
+if (!is_file($rutaEnv)) {
+    echo json_encode([
+        "success" => false,
+        "mensaje" => "Falta el archivo .env. Copia .env.example como .env y completa los datos."
+    ]);
+    exit;
+}
+
+$env = parse_ini_file($rutaEnv, false, INI_SCANNER_RAW);
+
+$host       = $env['DB_HOST'] ?? 'localhost';
+$port       = $env['DB_PORT'] ?? '3306';
+$usuario    = $env['DB_USER'] ?? '';
+$password   = $env['DB_PASS'] ?? '';
+$base_datos = $env['DB_NAME'] ?? 'venta_carros';
+
+if ($usuario === '' || in_array(strtolower($usuario), ['root', 'admin'], true)) {
+    echo json_encode([
+        "success" => false,
+        "mensaje" => "La aplicación no debe usar el usuario root ni admin. Usa el usuario venta_app (bd/usuario_app.sql)."
+    ]);
+    exit;
+}
 
 try {
     $conexion = new PDO("mysql:host=$host;port=$port;dbname=$base_datos;charset=utf8mb4", $usuario, $password);
